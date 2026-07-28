@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Татьяна Слободич — психолог, предприниматель, мама</title>
+<title>Татьяна Слободич — психолог для бизнеса и лидеров</title>
 <style>
   :root {
     --accent: #b5652f;
@@ -56,41 +56,88 @@
     margin-right: auto;
   }
 
+  h2 {
+    font-size: clamp(1.6rem, 4vw, 2.1rem);
+    color: var(--accent-dark);
+  }
+
+  /* Buttons */
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-top: 1.6em;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.85em 1.4em;
+    border-radius: calc(var(--radius) - 4px);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .btn-solid {
+    background: var(--accent);
+    color: #fff;
+  }
+  .btn-solid:hover { background: var(--accent-dark); }
+  .btn-outline-light {
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fbf2e9;
+    background: rgba(255,255,255,0.05);
+  }
+  .btn-outline-light:hover { background: rgba(255,255,255,0.14); }
+  .btn-outline {
+    border: 1px solid var(--accent);
+    color: var(--accent-dark);
+    background: transparent;
+  }
+  .btn-outline:hover { background: var(--paper-alt); }
+
   /* Hero */
   .hero {
     position: relative;
-    min-height: 78vh;
+    min-height: 82vh;
     display: flex;
     align-items: flex-end;
     background-size: cover;
     background-position: 10% 32%;
     background-image:
-      linear-gradient(180deg, rgba(30,20,14,0.35) 0%, rgba(24,16,11,0.55) 55%, rgba(20,13,9,0.8) 100%),
+      linear-gradient(180deg, rgba(30,20,14,0.35) 0%, rgba(24,16,11,0.6) 55%, rgba(20,13,9,0.85) 100%),
       url('images/2023_04_11_18_44_IMG_0571.JPG');
   }
   .hero-inner {
     color: #fbf2e9;
     padding: clamp(2rem, 6vw, 4rem);
-    max-width: 760px;
+    max-width: 780px;
+  }
+  .eyebrow {
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f0c9a3;
+    margin-bottom: 0.6em;
   }
   .hero h1 {
-    font-size: clamp(2.2rem, 6vw, 3.4rem);
-    margin-bottom: 0.25em;
-  }
-  .tagline {
-    font-size: clamp(1rem, 2.4vw, 1.25rem);
-    letter-spacing: 0.04em;
-    color: #f0c9a3;
-    text-transform: uppercase;
-    margin-bottom: 0.9em;
+    font-size: clamp(1.9rem, 5vw, 2.9rem);
+    line-height: 1.25;
+    margin-bottom: 0.35em;
   }
   .lead {
     font-size: clamp(1rem, 2.2vw, 1.15rem);
     color: #f3e7db;
-    max-width: 46ch;
+    max-width: 52ch;
+  }
+  .credentials {
+    font-size: 0.92rem;
+    color: #d9c3ae;
+    padding-top: 0.9em;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    max-width: 52ch;
   }
 
-  /* About */
+  /* About / approach */
   .about-grid {
     display: grid;
     grid-template-columns: 1.3fr 1fr;
@@ -102,7 +149,6 @@
   }
   .about-text h2 {
     font-size: clamp(1.6rem, 4vw, 2.1rem);
-    color: var(--accent-dark);
   }
   .about-photos img {
     width: 100%;
@@ -110,75 +156,26 @@
     aspect-ratio: 4 / 5;
     object-fit: cover;
     border-radius: var(--radius);
+    position: sticky;
+    top: 2rem;
   }
-
-  /* Work / projects */
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-  }
-  .card {
-    background: var(--paper);
-    border-radius: var(--radius);
-    padding: 1.6rem;
-    box-shadow: 0 1px 3px rgba(43,36,32,0.08);
-  }
-  .card h3 {
-    font-size: 1.15rem;
-    color: var(--accent-dark);
-  }
-  .card p { margin-bottom: 0; color: var(--muted); }
-  .card.highlight {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    align-items: center;
-    padding: 0;
-    overflow: hidden;
-  }
-  .card.highlight .highlight-text {
-    padding: 1.8rem;
-  }
-  .card.highlight img {
-    width: 100%;
-    height: 100%;
-    min-height: 220px;
-    object-fit: cover;
-  }
-  .card.highlight .highlight-text { order: 1; }
-  .card.highlight img { order: 2; }
-  .card.highlight.reverse .highlight-text { order: 2; }
-  .card.highlight.reverse img { order: 1; }
-  @media (max-width: 640px) {
-    .card.highlight { grid-template-columns: 1fr; }
-    .card.highlight .highlight-text,
-    .card.highlight.reverse .highlight-text { order: 2; }
-    .card.highlight img,
-    .card.highlight.reverse img { order: 1; }
-  }
-
-  .balance-note {
-    margin-top: 2rem;
-    padding: 1.25rem 1.5rem;
+  .quote {
+    margin: 1.5rem 0 0;
+    padding-left: 1.25rem;
     border-left: 3px solid var(--accent);
-    background: var(--paper);
-    border-radius: 0 var(--radius) var(--radius) 0;
-    font-style: italic;
-    color: var(--muted);
   }
-
-  h2 {
-    font-size: clamp(1.6rem, 4vw, 2.1rem);
-    color: var(--accent-dark);
+  .quote p { color: var(--ink); }
+  .quote-rule {
+    background: var(--paper-alt);
+    padding: 1.1rem 1.3rem;
+    border-radius: var(--radius);
+    margin-top: 1.4rem !important;
   }
 
   /* Facts */
   .facts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1.5rem;
     margin-top: 1.5rem;
   }
@@ -198,14 +195,120 @@
     color: var(--ink);
     font-size: 0.97rem;
   }
+  .fact figcaption strong {
+    display: block;
+    color: var(--accent-dark);
+    margin-bottom: 0.35em;
+  }
   .fact.no-image {
     display: flex;
     align-items: center;
     background: var(--accent);
     color: #fff;
+    min-height: 100%;
   }
   .fact.no-image figcaption { color: #fbf2e9; }
-  .fact.no-image strong { color: #fff; }
+  .fact.no-image figcaption strong { color: #fff; }
+
+  /* Services / directions */
+  .directions {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+    margin-top: 2rem;
+  }
+  .direction {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: stretch;
+    background: var(--paper);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(43,36,32,0.08);
+  }
+  .direction-media img {
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    object-fit: cover;
+  }
+  .direction-content {
+    padding: clamp(1.6rem, 4vw, 2.4rem);
+  }
+  .direction-content { order: 2; }
+  .direction-media { order: 1; }
+  .direction.reverse .direction-content { order: 1; }
+  .direction.reverse .direction-media { order: 2; }
+  .direction-eyebrow {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.4em;
+  }
+  .direction-list {
+    list-style: none;
+    margin: 1rem 0 1.5rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  .direction-list li {
+    position: relative;
+    padding-left: 1.1rem;
+    color: var(--muted);
+  }
+  .direction-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .direction-list strong { color: var(--ink); }
+  @media (max-width: 720px) {
+    .direction, .direction.reverse { grid-template-columns: 1fr; }
+    .direction .direction-content, .direction.reverse .direction-content { order: 2; }
+    .direction .direction-media, .direction.reverse .direction-media { order: 1; }
+  }
+
+  /* Manifesto */
+  .manifesto {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 6vw, 4rem);
+  }
+  .manifesto blockquote {
+    max-width: 760px;
+    margin: 0 auto;
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    line-height: 1.55;
+  }
+  .manifesto cite {
+    display: block;
+    margin-top: 1.6rem;
+    font-style: normal;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #f0c9a3;
+  }
+
+  /* Contact */
+  .contact {
+    text-align: center;
+  }
+  .contact p { color: var(--muted); }
 
   /* Footer */
   .footer {
@@ -220,21 +323,27 @@
 
   <header class="hero">
     <div class="hero-inner">
-      <h1>Татьяна Слободич</h1>
-      <p class="tagline">Психолог · Предприниматель · Мама</p>
-      <p class="lead">Работаю в интегративном подходе, используя разные направления психотерапии — и умею совмещать бизнес, практику и большую семью.</p>
+      <p class="eyebrow">Татьяна Слободич</p>
+      <h1>Зачем выбирать между масштабным бизнесом и счастливой жизнью, если можно взять всё?</h1>
+      <p class="lead">Индивидуальное сопровождение лидеров и системные расстановки для тех, кому важны смыслы и результаты. Без рекламы и «воды» — 7 лет практики только по закрытым рекомендациям.</p>
+      <p class="credentials">Два высших образования (юридическое и психологическое) · Основатель психологического центра в Минске</p>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="#individual">Записаться на индивидуальное сопровождение</a>
+        <a class="btn btn-outline-light" href="#groups">Узнать расписание групп, игр и расстановок</a>
+      </div>
     </div>
   </header>
 
   <section class="section" id="about">
     <div class="about-grid">
       <div class="about-text">
-        <h2>Обо мне</h2>
-        <p>Я предприниматель и практикующий психолог. Основала свой психологический центр. Опыт в бизнесе — с 2010 года. Работаю в интегративном подходе, используя разные направления психотерапии.</p>
-        <p>В 2024 году открыла логистическую компанию в Китае — с этой страной я связана с 2010 года.</p>
-        <p>Имею два высших образования: психологическое и юридическое. Это сочетание помогает мне глубже понимать не только запросы клиентов, но и структуру бизнес-процессов.</p>
-        <p>Я многодетная мама и уже 20 лет нахожусь в счастливых отношениях. Умение совмещать управление компанией, частную практику и семью считаю одним из главных своих достижений.</p>
-        <p>Мой жизненный девиз: «Зачем выбирать, если можно не выбирать!» — он помогает мне брать от жизни всё и быть успешной в самых разных ролях.</p>
+        <h2>Психология без «воды». Только смыслы, структура и конкретный результат.</h2>
+        <blockquote class="quote">
+          <p>Я соединяю твёрдое системное мышление и глубокую практику. Первое высшее юридическое образование и 15 лет управления собственными бизнесами научили меня главному — всегда видеть конечную цель и работать на результат. Любое действие, как в бизнесе, так и в терапии, должно быть наполнено глубоким смыслом и приводить к понятным изменениям.</p>
+          <p>Главный показатель качества моей работы — доверие. За все 7 лет практики я ни разу не запускала рекламу себя как психолог. Абсолютно все клиенты, включая крупных собственников бизнеса, приходят ко мне исключительно по «сарафанному радио» и личным рекомендациям. Я ценю это признание и строю терапию как честное, конфиденциальное и результативное партнёрство.</p>
+          <p>В работе я не «размазываю» процессы. Мы берём ваш запрос, декомпозируем его и находим точные причины, которые тормозят вас в бизнесе или жизни. Мои клиенты приходят за ощутимыми изменениями, а не за тем, чтобы говорить об одном и том же.</p>
+          <p class="quote-rule"><strong>Важное правило партнёрства:</strong> я гарантирую свою стопроцентную вовлечённость и лучшие системные инструменты. Но результат партнёрства — это всегда 50/50. Он зависит от вашей смелости, честности перед собой и готовности внедрять изменения в жизнь. Я даю карту и компас, но шаги к вашей цели делаете вы.</p>
+        </blockquote>
       </div>
       <div class="about-photos">
         <img src="images/2026_01_18_11_37_10_IMG_3563.JPEG" alt="Татьяна Слободич">
@@ -242,64 +351,98 @@
     </div>
   </section>
 
-  <section class="section alt" id="work">
-    <h2>Чем я занимаюсь</h2>
-    <div class="cards">
-      <div class="card highlight">
-        <div class="highlight-text">
-          <h3>Психологический центр</h3>
-          <p>Основала и развиваю собственный психологический центр.</p>
-        </div>
-        <img src="images/2025_10_06_21_47_10_IMG_2084.JPG" alt="Открытие психологического центра">
-      </div>
-      <div class="card highlight reverse">
-        <div class="highlight-text">
-          <h3>Практика на рекомендациях</h3>
-          <p>7 лет веду индивидуальный приём без вложений в рекламу — 100% клиентов приходят по «сарафанному радио».</p>
-        </div>
-        <img src="images/2024_09_10_20_30_IMG_6673.WEBP" alt="Уютный интерьер кабинета">
-      </div>
-      <div class="card highlight">
-        <div class="highlight-text">
-          <h3>Авторская колода метафорических карт (МАК)</h3>
-          <p>Создала уникальную, единственную в своём роде колоду метафорических ассоциативных карт — иллюстрации для неё написаны незрячей художницей.</p>
-        </div>
-        <img src="images/2023_09_22_12_40_IMG_3378.WEBP" alt="Татьяна Слободич">
-      </div>
-      <div class="card highlight reverse">
-        <div class="highlight-text">
-          <h3>Группы и корпоративное обучение</h3>
-          <p>Веду терапевтические группы, провожу трансформационные игры и психологические тренинги для коммерческих организаций.</p>
-        </div>
-        <img src="images/2023_09_29_23_36_IMG_3515.JPG" alt="Групповой тренинг">
-      </div>
-      <div class="card">
-        <h3>Логистическая компания в Китае</h3>
-        <p>В 2024 году открыла собственную логистическую компанию в Китае, опираясь на опыт работы с этой страной с 2010 года.</p>
-      </div>
-    </div>
-    <p class="balance-note">Отдельным достижением считаю умение совмещать управление компанией, частную практику и семью — я многодетная мама и уже 20 лет в счастливых отношениях.</p>
-  </section>
-
-  <section class="section" id="facts">
-    <h2>Немного личного</h2>
+  <section class="section alt" id="facts">
+    <h2>Личность за пределами кабинета</h2>
     <div class="facts-grid">
+      <figure class="fact no-image">
+        <figcaption><strong>1. Реализована во всех ролях</strong>Уже 20 лет я счастлива в отношениях со своим мужем. При этом я успешно совмещаю многодетное материнство, личную терапевтическую практику и собственный психологический центр в Минске. Я знаю всё о том, как не потерять себя среди бесконечных задач, управлять хаосом и сохранять личный ресурс.</figcaption>
+      </figure>
       <figure class="fact">
-        <img src="images/2026_02_08_15_38_15_IMG_3886.JPG" alt="Вышивка бисером ручной работы">
-        <figcaption>Обожаю рукоделие во всех его проявлениях — вязание, вышивание, рисование. Это мой способ замедлиться и восстановить энергию. А ещё увлекаюсь винтажом и антиквариатом.</figcaption>
+        <img src="images/2023_09_22_12_40_IMG_3378.WEBP" alt="Авторская колода метафорических карт">
+        <figcaption><strong>2. Проекты с особым смыслом</strong>Я создала уникальную авторскую колоду метафорических карт (МАК), которую по моему видению отрисовала незрячая художница. Этот проект — доказательство того, что чувствовать можно не только глазами, но и сердцем.</figcaption>
       </figure>
       <figure class="fact">
         <img src="images/2025_01_12_20_20_21_IMG_5908.JPG" alt="Гуанчжоу, Китай">
-        <figcaption>Китай считаю своим вторым домом — прожила там дважды по полгода, глубоко погрузившись в культуру и быт этой удивительной страны.</figcaption>
+        <figcaption><strong>3. Международный кругозор с детства</strong>Моя системность и любовь к структуре закладывались ещё в детстве, часть которого я провела в Германии. Позже мы несколько раз жили в Китае всей нашей большой семьёй, вместе с мужем и тремя сыновьями, глубоко погружаясь в местную культуру и быт. Это научило меня глобальному видению любых систем.</figcaption>
+      </figure>
+      <figure class="fact">
+        <img src="images/2026_02_08_15_38_15_IMG_3886.JPG" alt="Вышивка бисером ручной работы">
+        <figcaption><strong>4. Искусство замедления</strong>Вязание, вышивка, рисование — рукоделие во всех проявлениях помогает мне переключить мозг, остановить внутренний бег и восполнить энергию после сложных сессий. Я учу своих клиентов находить такие же твёрдые источники личной силы.</figcaption>
+      </figure>
+      <figure class="fact no-image">
+        <figcaption><strong>5. Результаты, наполненные смыслом</strong>В своём парнике я выращиваю свежие овощи для всей нашей большой семьи — и у меня это отлично получается. Работа с землёй невероятно заземляет, даёт твёрдую опору, возвращает к истокам и учит стратегическому терпению, необходимому для достижения масштабных целей.</figcaption>
       </figure>
       <figure class="fact">
         <img src="images/2026_02_16_13_37_59_IMG_3988.JPG" alt="Декоративный кролик">
-        <figcaption>В нашей большой семье есть место и для пушистых любимцев — дома живёт очаровательный декоративный кролик.</figcaption>
-      </figure>
-      <figure class="fact no-image">
-        <figcaption><strong>Жизненное кредо:</strong> «Зачем выбирать, если можно не выбирать!» — помогает брать от жизни всё и быть успешной в самых разных ролях.</figcaption>
+        <figcaption><strong>6. Эстетика времени и тепла дома</strong>Увлекаюсь коллекционированием винтажной посуды и антиквариата. Меня вдохновляют вещи с историей и характером — в них есть глубина, которую я ценю и в людях. А дома уют поддерживает наш пушистый любимец — очаровательный декоративный кролик.</figcaption>
       </figure>
     </div>
+  </section>
+
+  <section class="section" id="services">
+    <h2>Услуги и форматы работы</h2>
+    <div class="directions">
+
+      <div class="direction" id="individual">
+        <div class="direction-media">
+          <img src="images/2024_09_10_20_30_IMG_6673.WEBP" alt="Кабинет для индивидуальной работы">
+        </div>
+        <div class="direction-content">
+          <span class="direction-eyebrow">Направление 1</span>
+          <h3>Индивидуальное сопровождение</h3>
+          <ul class="direction-list">
+            <li><strong>Премиальное сопровождение для бизнеса и лидеров.</strong> Глубокая работа с собственниками и топ-менеджерами. Проработка синдрома самозванца, страха делегирования, выгорания, масштабирования мышления и лидерства.</li>
+            <li><strong>Индивидуальные консультации.</strong> Тот же уровень глубины, структуры и результата — для тех, кто не связан с бизнесом, но ценит такой подход и готов инвестировать в изменения этого уровня.</li>
+            <li><strong>Выступления на конференциях и мастер-классы.</strong> Практические лекции и выступления для профильных мероприятий и организаций о ментальном здоровье, психологии управления и устойчивости лидеров.</li>
+          </ul>
+          <a class="btn btn-outline" href="#contact">Отправить предложение спикеру / Записаться</a>
+        </div>
+      </div>
+
+      <div class="direction reverse" id="groups">
+        <div class="direction-media">
+          <img src="images/2023_09_29_23_36_IMG_3515.JPG" alt="Групповой тренинг">
+        </div>
+        <div class="direction-content">
+          <span class="direction-eyebrow">Направление 2</span>
+          <h3>Групповые форматы и системная работа</h3>
+          <ul class="direction-list">
+            <li><strong>Терапевтические группы.</strong> Безопасное и конфиденциальное пространство для глубоких изменений в окружении сильных единомышленников.</li>
+            <li><strong>Трансформационные игры и мастер-классы с МАК.</strong> Быстрый поиск ответов на сложные жизненные, карьерные и финансовые вопросы через подсознание.</li>
+            <li><strong>Системные расстановки (личные и бизнес-расстановки).</strong> Метод краткосрочной терапии для наведения порядка в системах любого масштаба. Работа с личными и родовыми сценариями, а также глубокий аудит бизнес-систем — поиск скрытых причин финансовых блоков, конфликтов с партнёрами и тупиков в масштабировании.</li>
+          </ul>
+          <a class="btn btn-outline" href="#contact">Занять место в группе / Записаться на расстановку</a>
+        </div>
+      </div>
+
+      <div class="direction" id="training">
+        <div class="direction-media">
+          <img src="images/2025_10_06_21_47_10_IMG_2084.JPG" alt="Психологический центр в Минске">
+        </div>
+        <div class="direction-content">
+          <span class="direction-eyebrow">Направление 3</span>
+          <h3>Обучение и авторские продукты</h3>
+          <ul class="direction-list">
+            <li><strong>Обучение для психологов и МАК-специалистов.</strong> Авторские обучающие программы на базе моего психологического центра в Минске. Передача уникального интегрированного опыта и повышение квалификации.</li>
+            <li><strong>Авторская колода МАК.</strong> Уникальный инструмент, созданный в соавторстве с незрячей художницей, для глубокой психологической работы.</li>
+          </ul>
+          <a class="btn btn-outline" href="#contact">Узнать об обучении / Купить колоду</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="manifesto">
+    <blockquote>
+      «Зачем выбирать, если можно не выбирать? Это моё жизненное кредо. Оно помогает мне брать от жизни всё, раскрывать свой потенциал на максимум и быть одинаково успешной и счастливой в самых разных ролях. И я помогаю своим клиентам прийти к такой же внутренней свободе, масштабному мышлению и изобилию».
+      <cite>Татьяна Слободич</cite>
+    </blockquote>
+  </section>
+
+  <section class="section contact" id="contact">
+    <h2>Готовы начать?</h2>
+    <p>Напишите мне удобным для вас способом, чтобы обсудить формат работы и подобрать ближайшую дату.</p>
   </section>
 
   <footer class="footer">
